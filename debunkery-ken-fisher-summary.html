@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Debunkery — Ken Fisher | Complete Investor Guide</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚫</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c1929;
+  --surface: #132338;
+  --card: #192f48;
+  --card-hover: #1f3a59;
+  --border: #243d5c;
+  --gold: #e8a000;
+  --gold-dim: rgba(232,160,0,0.15);
+  --text: #e8f0f8;
+  --subtext: #7a9ab8;
+  --myth: #c0392b;
+  --truth: #27ae60;
+  --p1: #7c3aed;
+  --p2: #db2777;
+  --p3: #d97706;
+  --p4: #059669;
+  --p5: #0284c7;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top,0);
+  padding-bottom: env(safe-area-inset-bottom,0);
+}
+
+/* ── HEADER ─────────────────────────────── */
+.site-header {
+  background: linear-gradient(135deg, #0a1624 0%, #0f2038 50%, #091522 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: 50%; transform: translateX(-50%);
+  width: 400px; height: 200px;
+  background: radial-gradient(ellipse, rgba(232,160,0,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.site-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+}
+.site-header h1 em { color: var(--gold); font-style: italic; }
+.header-sub {
+  font-size: 1rem;
+  color: var(--subtext);
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+.header-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+}
+.meta-pill {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  color: var(--subtext);
+}
+.views-counter {
+  background: var(--gold-dim);
+  border: 1px solid rgba(232,160,0,0.35);
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+.views-counter span { font-weight: 700; font-size: 0.9rem; }
+
+/* ── TABS NAV ────────────────────────────── */
+.tabs-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs-wrapper::-webkit-scrollbar { display: none; }
+.tabs {
+  display: flex;
+  min-width: max-content;
+  padding: 0 1rem;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--subtext);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  font-weight: 500;
+  padding: 0.9rem 1.1rem;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── MAIN LAYOUT ─────────────────────────── */
+.main-container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+/* ── TAB PANELS ─────────────────────────── */
+.tab-panel { display: none; padding-top: 2rem; }
+.tab-panel.active { display: block; }
+
+/* ── OVERVIEW PANEL ──────────────────────── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.overview-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.overview-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.overview-card p { color: var(--subtext); font-size: 0.88rem; line-height: 1.6; }
+
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+.toolkit-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.toolkit-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.toolkit-item h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.toolkit-item p { font-size: 0.81rem; color: var(--subtext); line-height: 1.5; }
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-title small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--subtext);
+  margin-top: 0.25rem;
+}
+
+/* ── PART HEADER ─────────────────────────── */
+.part-header {
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid;
+}
+.part-icon { font-size: 2.5rem; }
+.part-header h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.part-header p { font-size: 0.87rem; opacity: 0.8; margin-top: 0.3rem; }
+
+/* ── SEARCH ──────────────────────────────── */
+.search-bar {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.search-bar input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.search-bar input::placeholder { color: var(--subtext); }
+.search-bar input:focus { border-color: var(--gold); }
+.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--subtext);
+  font-size: 1rem;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.filter-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--subtext);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--text); }
+.filter-btn.active {
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ── BUNK CARDS ──────────────────────────── */
+.bunks-list { display: flex; flex-direction: column; gap: 0.875rem; }
+.bunk-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.bunk-card:hover { box-shadow: 0 0 0 1px rgba(232,160,0,0.2); }
+.bunk-card.hidden { display: none; }
+
+.bunk-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.bunk-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 0.25rem 0.55rem;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  opacity: 0.9;
+}
+.bunk-header-text { flex: 1; min-width: 0; }
+.bunk-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+.bunk-myth-preview {
+  font-size: 0.78rem;
+  color: var(--subtext);
+  margin-top: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bunk-toggle {
+  color: var(--subtext);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.bunk-card.open .bunk-toggle { transform: rotate(180deg); }
+
+.bunk-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bunk-card.open .bunk-body { max-height: 600px; }
+.bunk-body-inner { padding: 0 1.25rem 1.25rem; }
+
+.myth-block, .truth-block {
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.myth-block {
+  background: rgba(192,57,43,0.1);
+  border-left: 3px solid var(--myth);
+}
+.truth-block {
+  background: rgba(39,174,96,0.1);
+  border-left: 3px solid var(--truth);
+}
+.block-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+.myth-block .block-label { color: var(--myth); }
+.truth-block .block-label { color: var(--truth); }
+.block-text { font-size: 0.86rem; line-height: 1.6; }
+
+.insight-block {
+  background: var(--gold-dim);
+  border: 1px solid rgba(232,160,0,0.25);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.insight-block .block-label { color: var(--gold); }
+
+.data-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--subtext);
+  margin-top: 0.25rem;
+}
+.data-pill span { color: var(--text); font-weight: 500; }
+
+/* ── LESSONS TABLE ───────────────────────── */
+.lessons-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.lesson-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.lesson-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.5;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+.lesson-text h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.3rem; }
+.lesson-text p { font-size: 0.83rem; color: var(--subtext); line-height: 1.55; }
+
+/* ── CHECKLIST ───────────────────────────── */
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.checklist li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.checklist li:hover { background: var(--card-hover); }
+.checklist li.checked { opacity: 0.55; }
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+  transition: all 0.15s;
+}
+.checklist li.checked .checkbox {
+  background: var(--truth);
+  border-color: var(--truth);
+  color: #fff;
+}
+.checklist li.checked .checkbox::after { content: '✓'; font-size: 11px; font-weight: 700; }
+.checklist-text { font-size: 0.87rem; line-height: 1.5; }
+.checklist-text strong { color: var(--text); }
+.checklist-text small { color: var(--subtext); display: block; margin-top: 0.2rem; font-size: 0.78rem; }
+.checklist li.checked .checklist-text { text-decoration: line-through; }
+
+.checklist-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--subtext);
+}
+.progress-bar-wrap {
+  flex: 1;
+  background: var(--border);
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--truth);
+  border-radius: 4px;
+  transition: width 0.3s;
+  width: 0%;
+}
+
+/* ── KEY STATS ───────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+.stat-label { font-size: 0.78rem; color: var(--subtext); margin-top: 0.4rem; line-height: 1.4; }
+
+/* ── TABLE ───────────────────────────────── */
+.quick-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  margin: 1rem 0;
+}
+.quick-table th {
+  background: var(--card);
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+}
+.quick-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--subtext);
+}
+.quick-table td:first-child { color: var(--text); font-weight: 500; }
+.quick-table tr:last-child td { border-bottom: none; }
+.quick-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* ── QUOTE BLOCK ─────────────────────────── */
+.fisher-quote {
+  background: var(--gold-dim);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.fisher-quote cite {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin-top: 0.75rem;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--subtext);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+footer strong { color: var(--gold); }
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width: 600px) {
+  .overview-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .toolkit-grid { grid-template-columns: 1fr; }
+  .part-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .bunk-body { max-height: none !important; }
+  .bunk-card.open .bunk-body { max-height: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-eyebrow">Complete Book Summary & Investor Guide</div>
+  <h1><em>Debunkery</em></h1>
+  <p class="header-sub">Ken Fisher with Lara W. Hoffmans &mdash; 50 Myths That Are Making You Poorer</p>
+  <div class="header-meta">
+    <div class="meta-pill">📚 310 pages &bull; 50 bunks debunked</div>
+    <div class="meta-pill">🗓 Published 2011</div>
+    <div class="views-counter">👁 <span id="view-count">...</span> views</div>
+  </div>
+</header>
+
+<!-- TAB NAVIGATION -->
+<div class="tabs-wrapper">
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="part1" style="--tc:#7c3aed">Part 1</button>
+    <button class="tab-btn" data-tab="part2" style="--tc:#db2777">Part 2</button>
+    <button class="tab-btn" data-tab="part3" style="--tc:#d97706">Part 3</button>
+    <button class="tab-btn" data-tab="part4" style="--tc:#059669">Part 4</button>
+    <button class="tab-btn" data-tab="part5" style="--tc:#0284c7">Part 5</button>
+    <button class="tab-btn" data-tab="all">All 50 Bunks</button>
+    <button class="tab-btn" data-tab="lessons">Key Lessons</button>
+    <button class="tab-btn" data-tab="checklist">Investor Checklist</button>
+  </nav>
+</div>
+
+<div class="main-container">
+
+<!-- ── OVERVIEW ─────────────────────────────────── -->
+<div class="tab-panel active" id="panel-overview">
+
+  <div class="fisher-quote">
+    "A huge part of successful investing is just avoiding common errors most folks make repeatedly. Knowing about them means you can learn to better avoid them."
+    <cite>— Ken Fisher, Debunkery</cite>
+  </div>
+
+  <h2 class="section-title">What is Debunkery?
+    <small>The practice of questioning widely-held investing beliefs using data, history, and global perspective</small>
+  </h2>
+
+  <div class="stats-grid">
+    <div class="stat-card"><span class="stat-num">50</span><div class="stat-label">Myths Completely Demolished</div></div>
+    <div class="stat-card"><span class="stat-num">97%</span><div class="stat-label">Of 20-year periods where stocks beat bonds</div></div>
+    <div class="stat-card"><span class="stat-num">4.8×</span><div class="stat-label">Stocks vs bonds margin over 30 years</div></div>
+    <div class="stat-card"><span class="stat-num">21%</span><div class="stat-label">Average bull market annualized return</div></div>
+    <div class="stat-card"><span class="stat-num">5%</span><div class="stat-label">Annual gap: average fund investor vs S&P 500</div></div>
+    <div class="stat-card"><span class="stat-num">3.2yr</span><div class="stat-label">Average holding period for equity funds</div></div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:2rem">Fisher's 7 Debunkery Tactics
+    <small>Apply these to any investing belief you encounter</small>
+  </h2>
+  <div class="toolkit-grid">
+    <div class="toolkit-item"><div class="toolkit-icon">📐</div><div><h4>Scale It</h4><p>Big numbers are always scary. Put them in proper context — as % of GDP, per share, relative to history.</p></div></div>
+    <div class="toolkit-item"><div class="toolkit-icon">🔄</div><div><h4>Be Counterintuitive</h4><p>Markets are inherently counterintuitive. If common sense says X, check if the market rewards anti-X.</p></div></div>
+    <div class="toolkit-item"><div class="toolkit-icon">📜</div><div><h4>Check History</h4><p>"XYZ happened and that's bad." Has XYZ historically led to bad outcomes? Check the data — it's usually free.</p></div></div>
+    <div class="toolkit-item"><div class="toolkit-icon">🌍</div><div><h4>Think Globally</h4><p>Think outside your country. Many misconceptions dissolve instantly when you consider the full world picture.</p></div></div>
+    <div class="toolkit-item"><div class="toolkit-icon">💻</div><div><h4>Check Data Yourself</h4><p>Free historical data exists for almost everything. Don't take anyone's word — verify it with Excel correlations.</p></div></div>
+    <div class="toolkit-item"><div class="toolkit-icon">📦</div><div><h4>Use the Four-Box</h4><p>Check all four possible outcome combinations. Example: Down January + Down Year, Down Jan + Up Year, etc.</p></div></div>
+    <div class="toolkit-item"><div class="toolkit-icon">❓</div><div><h4>Question Consensus</h4><p>If EVERYONE believes something is true — question it. Flip it on its head and test whether the reverse holds.</p></div></div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:2rem">The 5 Parts at a Glance</h2>
+  <table class="quick-table">
+    <thead><tr><th>Part</th><th>Theme</th><th>Bunks</th><th>Core Question</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--p1)">▌ Part 1</td><td>Basic Bunk to Make You Broke</td><td>1–11</td><td>What are the most costly fundamental misconceptions?</td></tr>
+      <tr><td style="color:var(--p2)">▌ Part 2</td><td>Wall Street "Wisdom"</td><td>12–23</td><td>Which industry products and metrics are sold against your interests?</td></tr>
+      <tr><td style="color:var(--p3)">▌ Part 3</td><td>"Everyone Knows"</td><td>24–32</td><td>Which universal rules of thumb don't actually work?</td></tr>
+      <tr><td style="color:var(--p4)">▌ Part 4</td><td>History Lessons</td><td>33–42</td><td>What do you believe that a quick history check would disprove?</td></tr>
+      <tr><td style="color:var(--p5)">▌ Part 5</td><td>It's a Great Big World!</td><td>43–50</td><td>Which fears evaporate when you think globally?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="overview-grid" style="margin-top:1.5rem">
+    <div class="overview-card">
+      <h3>The Core Premise</h3>
+      <p>Investing is a <strong>probabilities game</strong>, not a certainties game. Even the best investors are wrong 30% of the time. The goal isn't zero mistakes — it's reducing your error rate to beat the majority of investors who are wrong more than right.</p>
+    </div>
+    <div class="overview-card">
+      <h3>Why We Get It Wrong</h3>
+      <p>Our Stone Age brains evolved for physical survival, not capital markets. Markets are inherently counterintuitive. We see heightened risk when risk is actually least, seek patterns where none exist, and are blinded by cognitive biases like hindsight, confirmation bias, and myopic loss aversion.</p>
+    </div>
+    <div class="overview-card">
+      <h3>The Power of Capitalism</h3>
+      <p>Stocks rise more than they fall because human ingenuity is boundless. Future earnings from currently unfathomed products and services will always be created. Capitalism has proven more powerful than any anti-capitalistic force in democratic nations. Bet on it.</p>
+    </div>
+  </div>
+</div><!-- /overview -->
+
+<!-- ── PART 1 ──────────────────────────────────── -->
+<div class="tab-panel" id="panel-part1">
+  <div class="part-header" style="background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.4);color:var(--p1)">
+    <div class="part-icon">💸</div>
+    <div>
+      <h2 style="color:var(--p1)">Part 1: Basic Bunk to Make You Broke</h2>
+      <p style="color:var(--subtext)">Bunks 1–11 &bull; The most fundamental misconceptions about stocks, bonds, time horizons, and market behavior that cost investors the most money long-term.</p>
+    </div>
+  </div>
+  <div class="bunks-list" id="list-part1"></div>
+</div>
+
+<!-- ── PART 2 ──────────────────────────────────── -->
+<div class="tab-panel" id="panel-part2">
+  <div class="part-header" style="background:rgba(219,39,119,0.1);border-color:rgba(219,39,119,0.4)">
+    <div class="part-icon">🏦</div>
+    <div>
+      <h2 style="color:var(--p2)">Part 2: Wall Street "Wisdom"</h2>
+      <p style="color:var(--subtext)">Bunks 12–23 &bull; Financial industry products and metrics that are often sold to investors for the broker's benefit, not yours. Knowing what doesn't work is as valuable as knowing what does.</p>
+    </div>
+  </div>
+  <div class="bunks-list" id="list-part2"></div>
+</div>
+
+<!-- ── PART 3 ──────────────────────────────────── -->
+<div class="tab-panel" id="panel-part3">
+  <div class="part-header" style="background:rgba(217,119,6,0.1);border-color:rgba(217,119,6,0.4)">
+    <div class="part-icon">📢</div>
+    <div>
+      <h2 style="color:var(--p3)">Part 3: "Everyone Knows"</h2>
+      <p style="color:var(--subtext)">Bunks 24–32 &bull; Rules of thumb everyone follows without question. If everyone knows it, it's probably priced in and worthless as a strategy — or worse, it's flat-out wrong.</p>
+    </div>
+  </div>
+  <div class="bunks-list" id="list-part3"></div>
+</div>
+
+<!-- ── PART 4 ──────────────────────────────────── -->
+<div class="tab-panel" id="panel-part4">
+  <div class="part-header" style="background:rgba(5,150,105,0.1);border-color:rgba(5,150,105,0.4)">
+    <div class="part-icon">📜</div>
+    <div>
+      <h2 style="color:var(--p4)">Part 4: History Lessons</h2>
+      <p style="color:var(--subtext)">Bunks 33–42 &bull; History is the investor's laboratory. These myths evaporate the moment you check historical data. The free data exists — most people just never look.</p>
+    </div>
+  </div>
+  <div class="bunks-list" id="list-part4"></div>
+</div>
+
+<!-- ── PART 5 ──────────────────────────────────── -->
+<div class="tab-panel" id="panel-part5">
+  <div class="part-header" style="background:rgba(2,132,199,0.1);border-color:rgba(2,132,199,0.4)">
+    <div class="part-icon">🌍</div>
+    <div>
+      <h2 style="color:var(--p5)">Part 5: It's a Great Big World!</h2>
+      <p style="color:var(--subtext)">Bunks 43–50 &bull; The US is less than 25% of world GDP. Thinking globally makes countless fears dissolve instantly. Most domestic investors lose enormously by ignoring the other 75% of the world.</p>
+    </div>
+  </div>
+  <div class="bunks-list" id="list-part5"></div>
+</div>
+
+<!-- ── ALL 50 BUNKS ────────────────────────────── -->
+<div class="tab-panel" id="panel-all">
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search bunks by title, myth, or topic…">
+  </div>
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-filter="all">All 50</button>
+    <button class="filter-btn" data-filter="1" style="border-color:rgba(124,58,237,0.4);color:var(--p1)">Part 1: Basic Bunk</button>
+    <button class="filter-btn" data-filter="2" style="border-color:rgba(219,39,119,0.4);color:var(--p2)">Part 2: Wall Street</button>
+    <button class="filter-btn" data-filter="3" style="border-color:rgba(217,119,6,0.4);color:var(--p3)">Part 3: Everyone Knows</button>
+    <button class="filter-btn" data-filter="4" style="border-color:rgba(5,150,105,0.4);color:var(--p4)">Part 4: History</button>
+    <button class="filter-btn" data-filter="5" style="border-color:rgba(2,132,199,0.4);color:var(--p5)">Part 5: Global</button>
+  </div>
+  <div class="bunks-list" id="list-all"></div>
+</div>
+
+<!-- ── KEY LESSONS ─────────────────────────────── -->
+<div class="tab-panel" id="panel-lessons">
+  <h2 class="section-title">20 Core Investment Principles
+    <small>Distilled from all 50 bunks — the investing truths Fisher returns to again and again</small>
+  </h2>
+  <ul class="lessons-list">
+    <li class="lesson-item"><div class="lesson-num">1</div><div class="lesson-text"><h4>Investing is a probabilities game, not a certainties game</h4><p>No investor is right more than ~70% of the time. The goal is not perfection — it's reducing your error rate. Accept that you will make mistakes, and aim to make fewer of them.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">2</div><div class="lesson-text"><h4>Your time horizon is likely much longer than you think</h4><p>A 65-year-old today has a median life expectancy of 85+. Your investing horizon ends when your money runs out, not when you retire. Think in decades, not years.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">3</div><div class="lesson-text"><h4>Stocks are safer than bonds over long periods</h4><p>Given 20+ years, stocks beat bonds in 97% of historical periods by a 3.7-to-1 margin. "Safe" bonds subject you to inflation risk, reinvestment risk, and opportunity cost — all of which can be devastating over time.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">4</div><div class="lesson-text"><h4>Normal returns are extreme, not average</h4><p>Stocks are up big (above 20%) or down in roughly 68% of years. Years returning "average" returns (10-12%) have occurred only 5 times since 1926. Anyone promising smooth, consistent returns is lying or stealing.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">5</div><div class="lesson-text"><h4>Bull markets are longer and stronger than you remember</h4><p>Bull markets average 21% annually and last far longer than bear markets. After big bear markets come big bull bounces. Never change your long-term strategy based on a bear market.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">6</div><div class="lesson-text"><h4>Clarity is the most expensive thing in markets</h4><p>New bull markets begin in V-shaped bounces. The first 3 months average 21.8% gains. Waiting for "clear" signals means missing most of the recovery. There is never an "all-clear" signal.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">7</div><div class="lesson-text"><h4>Your emotions are your biggest enemy</h4><p>Investors feel the pain of loss 2.5× more intensely than equal gains feel good (myopic loss aversion). This causes panic selling at lows and greed buying at highs. Your Stone Age brain makes a terrible investment advisor.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">8</div><div class="lesson-text"><h4>No investment style is permanently superior</h4><p>Growth, value, small-cap, large-cap — all trade leadership irregularly over multi-year periods. Supply and demand (via investment bankers) ultimately equalizes long-term returns across all categories. Never fall permanently in love with any single style.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">9</div><div class="lesson-text"><h4>Separate custody from decision-making — always</h4><p>Every major financial fraud in history involved the advisor having custody of client assets. Always hold your money at an independent third-party custodian. This simple step makes Ponzi schemes nearly impossible.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">10</div><div class="lesson-text"><h4>Stop-losses, DCA, covered calls, and annuities mostly enrich your broker</h4><p>These products are sold as risk-reducers but don't reliably work that way. Stop-losses are coin flips. DCA works just 31% of the time vs. lump-sum. Annuities carry fees that compound against you for decades.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">11</div><div class="lesson-text"><h4>Passive investing is tactically easy but psychologically nearly impossible</h4><p>DALBAR data: equity fund investors averaged 3.2% annually vs. 8.2% for the S&P 500 over 20 years — a 5% gap — because they can't hold for the necessary time. The average fund holding period is just 3.2 years.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">12</div><div class="lesson-text"><h4>Coincident indicators are useless for forecasting</h4><p>The VIX, consumer confidence, P/E ratios — these tell you what already happened, not what comes next. A signal you can only identify in hindsight is not a signal. Markets efficiently price in all widely known information.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">13</div><div class="lesson-text"><h4>No single calendar, seasonal, or political rule consistently works</h4><p>"So goes January," "Sell in May," dollar direction, Fed rate direction — none of these reliably predict stock market outcomes. The market is too complex for any single indicator to be failsafe.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">14</div><div class="lesson-text"><h4>Stocks lead the economy; never the other way around</h4><p>Stocks move 6-12 months before the economy confirms direction. GDP, unemployment, and consumer confidence are lagging or coincident indicators. Waiting for economic confirmation guarantees you miss the move.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">15</div><div class="lesson-text"><h4>Inflation is the silent killer of conservative portfolios</h4><p>At 3% average inflation, $25,000 of annual spending needs $60,000 in 30 years to maintain purchasing power. Healthcare inflation runs far above average. "Conservative" investing that doesn't outpace inflation is not safe — it's a slow death sentence for purchasing power.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">16</div><div class="lesson-text"><h4>Think globally; the world is more correlated than you think</h4><p>The US is ~25% of global GDP. US and non-US stocks have been highly correlated for centuries and trend together long-term. A truly global portfolio reduces single-country risk and expands your opportunity set. Aim for ~50% non-US exposure.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">17</div><div class="lesson-text"><h4>Budget deficits, high debt, trade deficits, and weak dollars are not stock killers</h4><p>Each of these "scary" factors has no reliable correlation with poor stock returns when checked historically. After deficit peaks, stocks average 22% over the next 12 months. Trade deficits reflect economic strength. Stocks rise in weak-dollar and strong-dollar environments equally.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">18</div><div class="lesson-text"><h4>Gold, oil, GDP, and confidence indicators don't predict stock direction</h4><p>Correlation between oil and stocks since 1980: -0.02 (essentially zero). Consumer confidence is coincident (reflects what just happened). Gold lost money for 23 consecutive years (1982-2005). GDP is a lagging measure.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">19</div><div class="lesson-text"><h4>The presidential term cycle is real and has fundamental drivers</h4><p>Year 3 of any presidency has averaged 17.5% returns — no negative year since 1939. New presidents moderate in their first year, resolving election-year fears (for new Democrats) or disappointments (for new Republicans). This is not voodoo; it has real economic logic.</p></div></li>
+    <li class="lesson-item"><div class="lesson-num">20</div><div class="lesson-text"><h4>Concentrate to build wealth; diversify to protect it — but know which road you're on</h4><p>Founder-CEOs and senior executives rightfully concentrate. But for the majority of investors on the "save and invest" road, no single stock should exceed 5% of your portfolio — especially not your employer's stock, which doubles your risk.</p></div></li>
+  </ul>
+</div>
+
+<!-- ── INVESTOR CHECKLIST ──────────────────────── -->
+<div class="tab-panel" id="panel-checklist">
+  <h2 class="section-title">Investor Action Plan
+    <small>Concrete steps every investor should take, drawn directly from Fisher's 50 bunks</small>
+  </h2>
+  <div class="checklist-progress">
+    <span id="checklist-count">0 of 20 completed</span>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill"></div></div>
+  </div>
+  <ul class="checklist" id="investor-checklist">
+    <li data-check="1"><div class="checkbox"></div><div class="checklist-text"><strong>Determine your true time horizon</strong><small>Count from today until the last day your portfolio needs to last — likely until the surviving spouse dies, not until retirement. For most people this is 25-40+ years.</small></div></li>
+    <li data-check="2"><div class="checkbox"></div><div class="checklist-text"><strong>Build your benchmark (not based on age alone)</strong><small>Determine: (1) time horizon, (2) return expectations, (3) cash flow needs. These three factors — not age — should determine your stock/bond mix.</small></div></li>
+    <li data-check="3"><div class="checkbox"></div><div class="checklist-text"><strong>Verify your advisor uses a separate custodian</strong><small>Your investment decisions and your money custody must be at different entities. If your advisor holds your assets directly, investigate or leave. This eliminates Ponzi scheme risk.</small></div></li>
+    <li data-check="4"><div class="checkbox"></div><div class="checklist-text"><strong>Check for the 5 fraud warning signs</strong><small>Advisor has custody · Consistently smooth returns · Murky strategy · Flashy distractions · You never did real due diligence. Any 3+ = investigate immediately.</small></div></li>
+    <li data-check="5"><div class="checkbox"></div><div class="checklist-text"><strong>Stop using the Dow as your benchmark</strong><small>Switch to market-cap-weighted indices: S&P 500 (US), MSCI World (global), MSCI ACWI (all-country). The Dow is price-weighted and broken. Never reference it for long-term performance.</small></div></li>
+    <li data-check="6"><div class="checkbox"></div><div class="checklist-text"><strong>Eliminate or review any stop-loss orders</strong><small>Stock prices are non-serially correlated — past prices don't predict future prices. Stop-losses only guarantee higher transaction costs. A triggered stop is a coin flip on future direction.</small></div></li>
+    <li data-check="7"><div class="checkbox"></div><div class="checklist-text"><strong>Audit your variable annuities</strong><small>Check annual fees (typically 2.4% vs 1.2% for mutual funds). Calculate the 20-year fee drag on your portfolio. Factor in surrender periods. Ask: would I be better off in the underlying funds directly?</small></div></li>
+    <li data-check="8"><div class="checkbox"></div><div class="checklist-text"><strong>Invest lump sums immediately when available</strong><small>Lump-sum investing beats dollar cost averaging 69% of the time historically. Markets rise more than they fall, so time invested matters more than timing.</small></div></li>
+    <li data-check="9"><div class="checkbox"></div><div class="checklist-text"><strong>Calculate your inflation-adjusted cash flow needs</strong><small>At 3% inflation, $25K/year spending becomes $45K in 20 years, $60K in 30 years. Plan for healthcare inflation running at 2-3× the general CPI. "Conservative" portfolios that don't outpace inflation are not safe.</small></div></li>
+    <li data-check="10"><div class="checkbox"></div><div class="checklist-text"><strong>Ensure your portfolio has meaningful non-US exposure</strong><small>Target ~40-50% non-US equity allocation. US stocks are ~49% of world equity market cap. Missing half the world's stocks means missing diversification benefits and multi-year leadership cycles.</small></div></li>
+    <li data-check="11"><div class="checkbox"></div><div class="checklist-text"><strong>Audit single-stock concentration in your portfolio</strong><small>No single stock should exceed 5% of your portfolio. Particularly dangerous: employer stock (doubles risk), highly concentrated inherited positions, or "hot" single stocks. Exceptions: if you are genuinely on the founder/CEO wealth-building road.</small></div></li>
+    <li data-check="12"><div class="checkbox"></div><div class="checklist-text"><strong>Stop relying on seasonal rules and calendar indicators</strong><small>Ignore: "Sell in May," "So goes January," "Don't fight the Fed," P/E-based timing, VIX signals, consumer confidence, oil price signals, and dollar direction. None reliably predict stock returns.</small></div></li>
+    <li data-check="13"><div class="checkbox"></div><div class="checklist-text"><strong>Create a "homegrown dividends" cash flow system</strong><small>Keep 2-3 months of cash flow needs in portfolio cash at all times. Sell strategically (tax losses, trimming overweights) rather than chasing dividend yield. Be cash flow agnostic about the source.</small></div></li>
+    <li data-check="14"><div class="checkbox"></div><div class="checklist-text"><strong>Establish your holding period commitment in writing</strong><small>Write down your minimum holding period for each investment before buying. For equity strategies, this should be 5-10+ years. Review this document every time you feel the urge to trade.</small></div></li>
+    <li data-check="15"><div class="checkbox"></div><div class="checklist-text"><strong>Create a "behavioral accountability" system</strong><small>Designate a trusted person (spouse, advisor, accountant) who must approve any major strategy change. Every time you want to deviate from your long-term plan, tell them — this friction prevents panic decisions.</small></div></li>
+    <li data-check="16"><div class="checkbox"></div><div class="checklist-text"><strong>Learn to read long-term stock charts on a log scale</strong><small>Always view 20+ year stock charts on a logarithmic scale. Linear-scale charts make recent gains look parabolic and scary — log scale shows consistent % growth. This eliminates fear of height in stock prices.</small></div></li>
+    <li data-check="17"><div class="checkbox"></div><div class="checklist-text"><strong>Stop worrying about gold, oil, GDP, and trade deficits as stock predictors</strong><small>Run the correlations yourself in Excel. Oil vs stocks: -0.02. Dollar vs stocks: no pattern. GDP vs stocks: stocks lead GDP by 6-12 months. These are not investment signals.</small></div></li>
+    <li data-check="18"><div class="checkbox"></div><div class="checklist-text"><strong>Understand the presidential term cycle and set expectations accordingly</strong><small>Years 1-2 of a presidency: more volatile, higher downside risk (political legislation risk). Years 3-4: historically more positive, less legislation. Year 3 has averaged +17.5% since 1939 with no negative years.</small></div></li>
+    <li data-check="19"><div class="checkbox"></div><div class="checklist-text"><strong>Internalize that unemployment rises after recessions end — and after stocks bottom</strong><small>Never wait for unemployment to fall before investing. Historically, the best 12-month returns come when you invest while unemployment is still rising. Stocks bottom 3-9 months before unemployment peaks.</small></div></li>
+    <li data-check="20"><div class="checkbox"></div><div class="checklist-text"><strong>Practice regular debunkery on your existing beliefs</strong><small>For every investing belief you hold: (1) Scale it, (2) Check history, (3) Think globally, (4) Run a four-box analysis, (5) Look for counterexamples. Question what you think you know.</small></div></li>
+  </ul>
+</div>
+
+</div><!-- /main-container -->
+
+<footer>
+  <p>Summary of <strong>Debunkery</strong> by Ken Fisher with Lara W. Hoffmans &bull; Published 2011 by John Wiley & Sons</p>
+  <p style="margin-top:0.5rem;color:#4a6480">This is an educational summary for informational purposes only. Not investment advice. Past performance is no guarantee of future results.</p>
+</footer>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────
+const PART_COLORS = { 1:'#7c3aed', 2:'#db2777', 3:'#d97706', 4:'#059669', 5:'#0284c7' };
+
+const BUNKS = [
+  // PART 1
+  { id:1, part:1, title:"Bonds Are Safer Than Stocks",
+    myth:"Bonds are inherently safer investments. Their name implies safety and they have less near-term volatility.",
+    truth:"Given a long time horizon, stocks are historically far superior and even safer. Stocks beat bonds in 62 of 64 twenty-year rolling periods (97%) by a 3.7-to-1 margin. Over 30-year periods, stocks have beaten bonds every single time by 4.8-to-1.",
+    insight:"Safety depends on your time horizon. The risk of insufficient growth to fund a long life often exceeds volatility risk. Bonds can lose value too — 10-year Treasuries fell 9.5% in 2009.",
+    data:"$100K in stocks (30-yr avg): $2,609,000 vs $100K in bonds: $524,000" },
+
+  { id:2, part:1, title:"Well-Rested Investors Are Better Investors",
+    myth:"If stocks keep you up at night, you should move to 'safer' investments that let you sleep.",
+    truth:"Investors who flee stocks for volatility reasons are myopic heat-chasers. They suffer near-term pain but miss long-term gains. Over 30-year periods, stocks beat bonds in every single historical period. You can train yourself to think long-term.",
+    insight:"The pain of loss feels 2.5× worse than equal gains feel good (myopic loss aversion). This is a cognitive error, not a portfolio signal. In 10-20 years, poor returns will cause far more lost sleep than near-term volatility.",
+    data:"Stocks beat bonds in 54/54 thirty-year rolling periods since 1926" },
+
+  { id:3, part:1, title:"Retirees Must Be Conservative",
+    myth:"Approaching or entering retirement means shifting to bonds and cash to reduce risk.",
+    truth:"A 65-year-old has a median life expectancy of 85+. Half live longer. Planning too conservatively risks outliving your money — 'aged poverty.' Stocks provide growth needed to fund a 20-30+ year retirement.",
+    insight:"Your investing horizon is not your retirement date — it's the day your money runs out. For married couples, plan for the longer-lived spouse. Volatility risk is just one risk; inflation risk, opportunity risk, and longevity risk can be worse.",
+    data:"At 3% inflation: $25K/yr spending requires $60K/yr in 30 years to maintain same purchasing power" },
+
+  { id:4, part:1, title:"Age Equals Asset Allocation",
+    myth:"'Take 100 minus your age = your stock percentage.' Age alone determines your investment mix.",
+    truth:"Asset allocation should be based on three factors: (1) time horizon, (2) return expectations, and (3) cash flow needs — not age alone. Two 75-year-olds with different health, family, and financial situations should have vastly different allocations.",
+    insight:"Age impacts time horizon but is just one factor. Relying solely on age ignores return expectations, cash flow needs, health, spouse's age, legacy goals, and income sources. The result can be serious errors that take decades to become apparent.",
+    data:"3 factors that determine your benchmark: Time horizon · Return expectations · Cash flow needs" },
+
+  { id:5, part:1, title:"You Should Expect Average Returns",
+    myth:"Stocks return about 10% per year on average, so consistent 10-12% annual returns are reasonable to expect — and someone promising them is not suspicious.",
+    truth:"Markets return 'average' returns in very few years. Since 1926, only 5 years saw S&P 500 returns between 10-12%. Stocks are up big (20%+) in 38% of years, or negative in ~28% of years. 'Average' annual returns are abnormally rare.",
+    insight:"Anyone promising smooth, consistent 10-12% annual returns regardless of market conditions (like Madoff claimed) is almost certainly a fraud. You cannot get market-like average returns without wild volatility. Smooth returns are the red flag, not a feature.",
+    data:"Years where stocks returned 10-12%: only 5 times (1926, 1959, 1968, 1993, 2004)" },
+
+  { id:6, part:1, title:"'Capital Preservation and Growth' Is Possible!",
+    myth:"You can preserve capital (no downside) while simultaneously achieving growth. This is a reasonable and achievable goal.",
+    truth:"True capital preservation means no volatility risk — which means minimal returns (T-bills at sub-1%). Any growth requires accepting some volatility. You cannot have both simultaneously. The concept is mathematically impossible as a long-term strategy.",
+    insight:"If someone sells you 'capital preservation and growth,' they're either a charlatan or misinformed. The paradox: the best way to preserve capital over the long term is actually via stocks — through growth. But that requires accepting volatility, not eliminating it.",
+    data:"20-yr Treasury bonds maturity guarantee vs stock volatility: you must choose one" },
+
+  { id:7, part:1, title:"Trust Your Gut",
+    myth:"Your instincts are reliable investment guides. Gut feelings about markets are often right.",
+    truth:"Our brains evolved for physical survival, not financial markets. We suffer systematic cognitive errors: selective memory, hindsight bias, confirmation bias, and myopic loss aversion. Losses feel 2.5× worse than equal gains feel good — driving panic selling at lows.",
+    insight:"'Fight or flight' instincts are destructive in investing. The brain that saved your ancestors from charging mammoths will cause you to sell at bear market lows. In 1998, world stocks fell 20% in 11 weeks then exploded 27% — investors who panicked missed the whole gain.",
+    data:"Investors feel the pain of loss 2.5× more than they enjoy equivalent gains" },
+
+  { id:8, part:1, title:"One Big Bear and You're Done",
+    myth:"A severe bear market is catastrophic and unrecoverable. You should shift to safety after a big loss.",
+    truth:"Big bear markets are always followed by big bull markets. Bull markets average 21% annualized returns. The bigger the bear, the bigger the initial bull bounce. Stocks have always recovered and hit new highs after every bear market in history.",
+    insight:"The stock market's long-term 10% average INCLUDES bear markets. Bull markets have to be bigger and longer to make that math work — and they are. A 138% gain after a 58% drop is exceptional but historically consistent. Never change your strategy after a bear market.",
+    data:"Bull market average annualized return: 21% · All bear markets have been followed by full recovery" },
+
+  { id:9, part:1, title:"Make Sure It's a Bull Before Diving In",
+    myth:"Wait for clarity — a confirmed new bull market — before reinvesting after a bear market.",
+    truth:"New bull markets start in a sharp V-bounce. The first 3 months of a new bull average +21.8%, and the first 12 months average +44.8%. By the time you have 'clarity' you've missed most of the gains. Clarity is extremely expensive to purchase.",
+    insight:"There is no 'all-clear' signal. The categories that fall most in the late stages of a bear market bounce most at the start of the new bull. The opportunity cost of waiting for certainty almost always exceeds the cost of investing slightly too early.",
+    data:"Average first 3 months of new bull market: +21.8% · Average first 12 months: +44.8%" },
+
+  { id:10, part:1, title:"Growth Is Best For All Time. No, Value. No, Small Caps",
+    myth:"One investment style (large growth, small value, foreign, etc.) is permanently superior and should dominate your portfolio.",
+    truth:"No investment style dominates forever. Leadership rotates irregularly — sometimes for years at a time. Supply and demand forces (via investment bankers meeting demand with new share issuances) equalize long-term returns across all categories.",
+    insight:"Investment bankers create new supply in hot categories until demand falls. In the 1990s, large-cap tech dominated; it then crashed. Small-cap led the early 2000s; foreign stocks led mid-2000s. Each 'permanent winner' then lagged for years.",
+    data:"No asset class box dominates the performance chart for more than a few years before rotating" },
+
+  { id:11, part:1, title:"A Good Con Artist Is Hard to Spot",
+    myth:"Financial fraudsters are clever and virtually impossible to detect before it's too late.",
+    truth:"Every major financial fraud in history has displayed 3-5 clear warning signs. #1 sign (present in 100% of cases): your advisor has direct custody of your assets. Separating custody from decision-making makes Ponzi schemes nearly impossible.",
+    insight:"The 5 warning signs: (1) Advisor has custody of assets — always. (2) Consistently smooth, above-average returns. (3) Murky or overcomplicated strategy. (4) Flashy distractions, 'exclusive' access. (5) No real due diligence done. If you see #1 plus any others — get your money immediately.",
+    data:"100% of documented Ponzi schemes: advisor had direct access/custody of client assets" },
+
+  // PART 2
+  { id:12, part:2, title:"Stop-Losses Stop Losses!",
+    myth:"Stop-loss orders protect you from big losses by automatically selling when a stock drops to a set level.",
+    truth:"Stock prices are non-serially correlated — yesterday's price movement doesn't predict tomorrow's. When a stop triggers, it's a 50/50 coin flip whether the stock continues down or reverses. The only guaranteed outcome is higher transaction costs.",
+    insight:"No successful long-term money manager uses stop-losses as a primary strategy. They can lock in a loss at a relative low, while the stock immediately rebounds. They don't prevent losses — they just make them certain when triggered at the wrong moment.",
+    data:"When a stop triggers after a 20% drop: ~50% chance stock continues down, ~50% chance it reverses" },
+
+  { id:13, part:2, title:"Covered Calls...Gotcha Covered",
+    myth:"Covered calls are conservative and safe; naked puts are risky and dangerous. They are fundamentally different strategies.",
+    truth:"Mathematically, a covered call and a naked put are identical instruments with identical risk and payout profiles. Both have capped upside and substantial downside. The perceived safety difference is purely psychological framing, not financial reality.",
+    insight:"This is a classic cognitive error: identical information perceived differently based on how it's framed. Covered calls feel safe because you 'have the stock.' But you still have full downside risk minus only the premium received — exactly like a naked put.",
+    data:"Covered call = naked put (mathematically identical risk/reward profile per finance theory)" },
+
+  { id:14, part:2, title:"Dollar Cost Averaging — Lower Risk, Better Returns",
+    myth:"Investing smaller amounts over time (DCA) reduces risk and improves long-term returns vs. lump-sum investing.",
+    truth:"Lump-sum investing beats DCA two-thirds of the time (69% historically from 1926-2009). Markets rise more than they fall, so being invested earlier is typically better. DCA primarily reduces regret risk — not real risk — while increasing transaction costs.",
+    insight:"DCA exists mainly as an emotional comfort for investors who fear buying at the 'wrong' time. It also serves as a fee generator for brokers. The academic evidence is clear: lump-sum wins because time in the market beats timing the market.",
+    data:"Lump-sum beats DCA: 69% of 20-year periods · DCA average extra annual return vs lump-sum: -1.1%" },
+
+  { id:15, part:2, title:"Variable Annuities Are All Upside, No Downside",
+    myth:"Variable annuities provide market growth potential with downside protection — the best of both worlds.",
+    truth:"Average annual variable annuity fees: 2.4% (vs. 1.2% for mutual funds). Commissions to sales agents: 6-14% upfront. Surrender fees for early exit: 5-7% declining over years. Tax treatment often unfavorable. Insurance company insolvency risk.",
+    insight:"Over 20 years with 10% market returns, paying an extra 1.2% annually in fees costs ~$1.1M per $1M invested. Variable annuities exist primarily because their massive commissions make them very attractive to sell — which is why they're so hard to buy well.",
+    data:"Typical annuity commission: 6-14% upfront · Annual fee vs index fund: approximately double" },
+
+  { id:16, part:2, title:"Equity-Indexed Annuities — Better Than Normal Annuities",
+    myth:"Equity-indexed annuities give you full market upside participation with guaranteed downside protection.",
+    truth:"Return caps (often 10%/year) severely limit gains during big up years. Many exclude dividends from return calculations (historically ~4.2% of total return). The income base guarantee is different from account value. Hidden costs compound over decades.",
+    insight:"Over 30 years, a 10% annual cap turned $1M into ~$7.5M vs $22M in straight S&P 500 in a hypothetical. The guaranteed floor comes at enormous cost. Insurance companies design these contracts to be profitable to them — not to you.",
+    data:"Hypothetical 30-yr return: S&P 500 ($22M) vs annuity with 10% cap ($7.5M) per $1M invested" },
+
+  { id:17, part:2, title:"Passive Investing Is Easy",
+    myth:"Just buy an index fund, set it and forget it — passive investing is the easiest strategy.",
+    truth:"Tactically simple; psychologically near-impossible. DALBAR data shows equity fund investors averaged 3.2% annually vs. the S&P 500's 8.2% over 20 years — a 5% annual gap — because they can't hold through volatility. Average holding period: just 3.2 years.",
+    insight:"The investor who bought an index fund and then switched to bonds in the 2002 downturn, went all-in on Nasdaq in 1999, and fled to cash in 2009 did not do passive investing. They did expensive active market timing while paying passive fees.",
+    data:"Equity fund investors vs S&P 500 over 20 years: 3.2% vs 8.2% annual return (DALBAR study)" },
+
+  { id:18, part:2, title:"Do Better With Mutual Funds by Sending Your Spouse on a Shopping Spree",
+    myth:"No-load mutual funds are always better than load funds because you avoid paying a commission.",
+    truth:"The absence of a load incentivizes more frequent switching (chasing heat), which destroys returns far more than a 5% load would. Women outperform men by 1.4%/year because they trade 67% less (Barber & Odean study). The load can create beneficial discipline.",
+    insight:"A 5% load can be fully recovered by holding 3 years longer than you otherwise would. If you can't commit to that discipline, the load might actually help you perform better. The cost of behavioral errors dwarfs the cost of most reasonable fees.",
+    data:"Women vs men annual investing returns: +1.4% advantage for women due to 67% less trading (Barber & Odean)" },
+
+  { id:19, part:2, title:"Beta Measures Risk",
+    myth:"A stock's beta (historical volatility relative to the market) accurately measures its risk level going forward.",
+    truth:"Beta measures past volatility — past tense. Categories that fall most in bear markets (high beta) bounce most in early bull markets. Using beta to avoid 'risky' high-beta stocks means systematically avoiding the best post-bear-market performers.",
+    insight:"If stock prices are non-serially correlated (past prices don't predict future prices — which academics broadly agree on), then beta — which is based entirely on past prices — cannot reliably predict future risk. You cannot drive forward by looking only in the rearview mirror.",
+    data:"Sectors that fell most in 6 months before March 2009 bottom: also rose most in 6 months after" },
+
+  { id:20, part:2, title:"Equity Risk Premiums — Forecasting Future Returns With Ease",
+    myth:"Equity risk premium (ERP) models can reliably forecast where stocks will be in 7-10 years.",
+    truth:"No ERP model has ever reliably stood up to historical back-testing. ERPs cannot predict future stock supply, which drives long-term returns. They're quantified expressions of the model-builder's pre-existing optimism or pessimism.",
+    insight:"Long-term stock supply (IPOs, buybacks, mergers) is the dominant long-term price driver — and it is completely unpredictable. Any 10-year forecast that doesn't address supply is fundamentally incomplete. ERP models sound rigorous but are dressed-up guesses.",
+    data:"Historic ERP by decade: -0.9% (1930s), +18.9% (1950s), +10.2% (1990s), -3.3% (2000s) — wildly variable" },
+
+  { id:21, part:2, title:"When the VIX Is High, It's Time to Buy",
+    myth:"High VIX (fear index) signals time to buy; low VIX signals time to sell stocks.",
+    truth:"The VIX is at best a coincident indicator — it moves with the market. You can only identify VIX peaks and troughs after the fact (when stocks have already moved). In some years the relationship holds; in others (like 1995's straight-up bull) it's pure static noise.",
+    insight:"Any indicator that only works in hindsight is useless for making decisions. Like the weather — knowing it rained yesterday doesn't tell you if it will rain tomorrow. Coincident indicators feel predictive because we see the past pattern but can't see the future.",
+    data:"1995: VIX gave no useful signal in a year stocks rose 37.6% — static noise, not useful signal" },
+
+  { id:22, part:2, title:"Be Confident on Consumer Confidence",
+    myth:"Rising consumer confidence signals rising stock markets ahead; falling confidence signals danger.",
+    truth:"Consumer confidence is coincident or slightly lagging relative to stocks — not predictive. When stocks rise, people feel better. The data is released a month late and represents average feelings from the middle of the prior month. Stocks already moved.",
+    insight:"You can tell me what the stock market did in May, and I'll tell you with high precision where consumer confidence is headed in June's report. But you cannot reverse this. Confidence reflects what just happened; it says nothing about what comes next.",
+    data:"Consumer confidence correlation with future stock returns: coincident/lagging. Not predictive." },
+
+  { id:23, part:2, title:"All Hail the Mighty Dow!",
+    myth:"The Dow Jones Industrial Average (DJIA) is a reliable measure of US market performance.",
+    truth:"The Dow is price-weighted — meaning share price (a cosmetic number) determines a company's impact, not market cap (actual size). Microsoft ($226B market cap, $26/share) had 1/3 the Dow impact of 3M ($57B market cap, $79/share). Stock splits further distort returns.",
+    insight:"From 1965-1982, the Dow 'went nowhere' — yet the S&P 500 annualized 7.1% over the same period. The Dow persists purely from tradition and Dow Jones' media power. Every serious institutional investor uses market-cap-weighted indices. You should too.",
+    data:"1965-1982: Dow 'flat' · S&P 500 (correct measure): +7.1% annualized. Massive difference in real returns." },
+
+  // PART 3
+  { id:24, part:3, title:"So Goes January",
+    myth:"If January is down, the year will be down. The first month of the year predicts the rest.",
+    truth:"A four-box analysis shows: a down January leads to an up year as often as a down year. In January 2009, S&P fell 8% — then rose 26.5% for the year. Stocks are positive ~71% of years regardless of January. The pattern uses confirmation bias to appear valid.",
+    insight:"This belief survives because people remember confirming instances and forget contradictions (confirmation bias). A down January doesn't tell you anything meaningful about the remaining 11 months that the base rate of stocks rising 71% of years doesn't already tell you.",
+    data:"Jan 2009 down 8%, full year 2009 up 26.5%. Down January historically leads to up year ~50% of time." },
+
+  { id:25, part:3, title:"Sell in May",
+    myth:"'Sell in May and go away' — summer months are historically weak for stocks.",
+    truth:"June, July, and August together average 4.51% returns — actually the best 3-month stretch of the year. The full May-October period averages 4.26% — positive and far better than T-bills. Only September has a negative average, largely due to 2 Depression-era months.",
+    insight:"Even if you could 'sell in May,' you'd need to know exactly when to re-enter. When? And transaction costs and taxes from repeated in-and-out moves destroy returns. July is actually the historically best month (+1.83%). This is financial folklore, not strategy.",
+    data:"Average returns by season: Jun+Jul+Aug = 4.51% · Sep only month with negative avg. July is best month at 1.83%." },
+
+  { id:26, part:3, title:"Low P/Es Mean Low Risk",
+    myth:"Low price-to-earnings ratios signal cheap stocks and low risk; high P/Es signal danger.",
+    truth:"P/E is a snapshot of the present, not a crystal ball. High P/E at year-end 2008 (60.7!) preceded 2009's 27% gain. Low P/Es in 1929 preceded the Great Crash. High P/Es in 1995-1998 preceded massive stock gains. P/E direction and stock returns have no consistent relationship.",
+    insight:"P/E reflects two moving parts: Price (what investors pay today) and Earnings (what just happened). In recessions, earnings crash, making P/E sky-high — which is exactly when stocks are at their cheapest and best positioned to rise. A high P/E at a bear market bottom is normal.",
+    data:"Year-end 2002 P/E: 31.9 (sky high) → 2003 return: +29%. Year-end 2008 P/E: 60.7 → 2009 return: +27%" },
+
+  { id:27, part:3, title:"A Strong Dollar Is Super",
+    myth:"A weak dollar is bad for stocks; a strong dollar signals economic strength and is good for stocks.",
+    truth:"Four-box analysis from 1971 to 2009: zero reliable pattern between dollar direction and stock market returns. When stocks were up, there were equal occurrences of up and down dollar years. The correlation is essentially random.",
+    insight:"A weak dollar means a strong non-dollar. Since US is ~25% of world GDP, a weak dollar theory would predict foreign stocks rise when US falls — but US and global stocks are highly correlated. They can't zigzag the way dollar theory requires.",
+    data:"Since 1971: when stocks up, dollar was up OR down in equal numbers. No meaningful correlation exists." },
+
+  { id:28, part:3, title:"Don't Fight the Fed",
+    myth:"Rising Fed rates are bearish for stocks; falling rates are bullish. Never fight the Fed's direction.",
+    truth:"From 2001-2003, Fed cut rates while stocks fell in a bear market. From 2004-2006, Fed raised rates during a bull market. Historically, the S&P 500 averaged positive returns 12, 24, and 36 months after the first rate hike in a tightening cycle.",
+    insight:"Rate changes are just one of countless factors. When the Fed tightens, it's usually because the economy is strong enough to handle it — which is generally bullish. Rate changes also happen slowly, giving markets time to price them in well before they take effect.",
+    data:"S&P 500 average return 12 months after first rate hike in tightening cycle: positive in most historical cases" },
+
+  { id:29, part:3, title:"Interest Pays Dividends",
+    myth:"Retirees need dividend stocks and interest-bearing bonds to generate reliable income.",
+    truth:"'Income' (dividends, interest) and 'cash flow' are different concepts. Strategically selling shares ('homegrown dividends') can generate equivalent cash flow with better tax treatment. Long-term capital gains are often taxed at lower rates than ordinary income.",
+    insight:"Being 'income agnostic' while optimizing for total return gives you more flexibility, better tax efficiency, and allows appropriate asset allocation decisions. The obsession with yield leads to overweighting high-dividend stocks and bonds based on cash flow source rather than total return.",
+    data:"Long-term capital gains tax rate: often lower than ordinary income tax rate on dividends and interest" },
+
+  { id:30, part:3, title:"Buy a 5% CD for 5% Cash Flow — Easy!",
+    myth:"Safe CDs or similar low-risk instruments can reliably fund retirement without growth.",
+    truth:"At 3% average inflation, $25K/year spending needs $45K in 20 years and $60K in 30 years to maintain the same purchasing power. Healthcare inflation runs 2-3× the CPI average. CDs also can't guarantee their rate renews at similar yields when they mature.",
+    insight:"Avoiding volatility to protect near-term capital while inflation erodes purchasing power over 20-30 years is not 'safe' — it's a slow retirement disaster. The silent killer of inflation destroys 'conservative' portfolios that don't generate real growth.",
+    data:"At 3% inflation: $25,000 in purchasing power today costs ~$60,000 in 30 years. Healthcare inflates faster." },
+
+  { id:31, part:3, title:"Baby Boomers Retire, World Ends",
+    myth:"Mass boomer retirements will cause a massive wave of stock selling, crashing markets for decades.",
+    truth:"Markets efficiently discount well-known information. Boomer retirements have been known since the 1950s — already priced in. Stock demand comes from global investors, not just US retirees. Today's 65-year-old has a 20+ year investment horizon. Retirees spend more than they save in early retirement.",
+    insight:"Slow, predictable demographic shifts simply don't move markets. Markets price in events coming in the next 12-24 months that are surprising and urgent — not demographic trends known 40 years in advance. Emerging market investors with exploding per-capita wealth are growing demand for global stocks.",
+    data:"Markets price in events 12-24 months ahead. Boomer retirements were known 40 years ago — already 'priced in.'" },
+
+  { id:32, part:3, title:"Concentrate to Build Wealth",
+    myth:"'Concentrate to build wealth, diversify to protect it' applies universally to all investors.",
+    truth:"Context-dependent and vitally important to get right. For founders, early employees, and CEOs on the wealth-creation road: concentration is appropriate and how most billionaires were made. For everyone else on the 'save and invest' road: the 5% rule is essential.",
+    insight:"The massive danger is employees loading up on employer stock. Enron's collapse wiped out employees' retirement accounts that were 100% in Enron stock. They lost their jobs AND their savings simultaneously. No matter how well you know your company, one stock ≠ a portfolio.",
+    data:"Recommended max single-stock position for 'save and invest' investors: 5% of portfolio (especially employer stock)" },
+
+  // PART 4
+  { id:33, part:4, title:"Pray for Budget Surpluses",
+    myth:"Government budget surpluses are great for stocks and the economy; deficits are terrible.",
+    truth:"After deficit peaks since 1947, S&P 500 averages +22.1% over the next 12 months. After surplus peaks, stocks average -0.2%. The 1999 surplus peak preceded a bear market; the 1982 and 1992 deficit peaks preceded massive bull markets.",
+    insight:"Government spending — even inefficient spending — creates economic velocity. New money gets spent ~6 times in 12 months. Each spend benefits the economy. Surpluses, conversely, reduce money velocity. Markets somehow know this and respond accordingly.",
+    data:"After deficit peaks: stocks avg +22.1% (12mo) · After surplus peaks: stocks avg -0.2% (12mo)" },
+
+  { id:34, part:4, title:"High Unemployment Is a Killer",
+    myth:"Stock markets cannot recover until unemployment falls. High unemployment prevents recovery.",
+    truth:"Unemployment is a lagging indicator — it continues rising AFTER recessions end and stocks have already surged. In 2009, US unemployment exceeded 10% while stocks rose 26.5% for the year (+68% from the March low). This pattern is consistent across every recession in history.",
+    insight:"CEOs don't hire until sales have clearly rebounded for an extended period. When firms do start hiring, they use part-time and contract workers first. Full-time hiring is the last step. Meanwhile, stocks have already moved 6-12 months ahead of employment.",
+    data:"Best 12-month stock returns come if you invest 6 months BEFORE unemployment peaks — while it's still rising" },
+
+  { id:35, part:4, title:"With Gold, You're Golden",
+    myth:"Gold is a safe haven investment that preserves wealth and rivals stocks as a long-term holding.",
+    truth:"Since 1973, stocks returned 3,552% (10.5% annualized) vs gold's 983% (6.8%). Strip out gold's 6 brief boom periods totaling 15% of the time, and gold returned -67.6% (annualized -3.6%/year). Gold lost money for 23 consecutive years from 1982-2005.",
+    insight:"Gold requires near-perfect market timing to profit. It booms briefly and spectacularly, then languishes for years or decades. To do well with gold, you need to correctly time both entry and exit — which virtually no one can do consistently.",
+    data:"Gold vs stocks since 1973: gold +983% (6.8% annual) vs S&P 500 +3,552% (10.5% annual)" },
+
+  { id:36, part:4, title:"Stocks Love Lower Taxes",
+    myth:"Capital gains tax cuts reliably boost stocks; tax hikes reliably hurt them.",
+    truth:"No reliable correlation. In 1981 (rate cut from 28% to 20%), stocks fell 22% over next 12 months. In 1987 (rate raised to 28%), stocks soared. Markets price in anticipated tax changes months before they take effect, and other forces typically overwhelm tax impacts.",
+    insight:"About half of US securities are held by tax-exempt entities (pension funds, endowments, IRAs). US stocks are also less than half of global markets. These factors dilute any tax signal. Plus, markets have months to price in changes as legislation is debated.",
+    data:"1981 cap gains tax CUT: stocks fell 22% next year. 1987 tax HIKE: stocks rose strongly. No consistent correlation." },
+
+  { id:37, part:4, title:"Oil and Stocks Seesaw",
+    myth:"High oil prices are bad for stocks. Oil and stocks move inversely.",
+    truth:"Since 1980, the correlation coefficient between oil and US stocks is -0.02 — essentially zero. R-squared: 0%. Oil rose with stocks from 2003-2007. Oil rose while stocks fell in late 2007 through mid-2008. Then both fell together. Then both rose in 2009.",
+    insight:"A dollar spent on gas is a dollar spent in the global economy — the money doesn't disappear. Oil-driven spending reshapes who benefits, but doesn't reduce total economic activity. Oil prices and stock prices have completely separate, independent supply and demand drivers.",
+    data:"Oil vs US stocks correlation coefficient since 1980: -0.02 (essentially zero). R-squared: 0%." },
+
+  { id:38, part:4, title:"Swine Flu, SARS, Ebola, and Other Viral Disasters Make Markets Sick",
+    myth:"Pandemics and major disease outbreaks cause stock market crashes.",
+    truth:"During the 1918 Spanish flu (500M infected, ~100M dead — 1/3 of humanity), stocks rose 26% in 1918 and 21% in 1919. SARS (2003): world stocks rose 33%. Bird flu (2005-06): stocks rose strongly. Swine flu (2009): markets soared. Pattern is consistent.",
+    insight:"The prior fear of a false factor is nearly always bullish when it fails to materialize as feared. Even when pandemics are genuine (1918 was catastrophic), Capitalism and markets proved more resilient than the disaster. Drug innovation and public health responses adapt faster than viruses.",
+    data:"1918 Spanish flu pandemic (1/3 of world infected, ~100M dead): stocks +26% in 1918, +21% in 1919" },
+
+  { id:39, part:4, title:"Consumers Are King",
+    myth:"Since consumer spending is 71% of US GDP, weak consumers prevent economic recovery.",
+    truth:"Consumer spending barely fell during the 2008-2009 recession (-1.2% of GDP). Business investment fell 3.4% — the dominant drag. Services (68% of consumer spending) fell just 0.2%. Consumer spending is far more stable than perceived because most of it is non-discretionary.",
+    insight:"Most consumer spending is on housing, utilities, healthcare, food — things you buy regardless of recessions. Durable goods (cars, appliances) do fall in recessions — but they're only 10% of consumer spending! Business investment is the volatile cycle driver.",
+    data:"2008-09 GDP decline contributors: Business investment -3.4% · Consumer spending only -1.2% of the drag" },
+
+  { id:40, part:4, title:"Presidential Term Cycles Are Stock Market Voodoo",
+    myth:"The presidential term stock cycle is a coincidental pattern with no real fundamental basis.",
+    truth:"Year 3 of every presidential term has averaged +17.5% returns — not negative since 1939. Years 1-2 are more volatile. This has fundamental drivers: political risk aversion is highest in years 1-2 (legislation threats), falls in years 3-4 (less can get done, re-election moderating incentives).",
+    insight:"Legislation redistributes money and property rights. Those who fear losing resist with 2.5× the intensity of winners' enthusiasm — raising risk aversion. In the back half of terms, presidents can't push major legislation, risk aversion falls, and markets reward this with above-average returns.",
+    data:"Year 3 of presidency: avg +17.5%, zero negative years since 1939. Year 1-2: more volatile, lower average." },
+
+  { id:41, part:4, title:"My Political Party Is Best for Stocks",
+    myth:"Your political party consistently produces better stock market returns.",
+    truth:"Neither party is reliably better long-term. Election years when presidency changes R-to-D: stocks avg -2.8%. But inaugural year for new Democrats: avg +21.8% (markets relieved they did less than feared). New Republicans' inaugural year: avg -6.6% (markets disappointed they did less than hoped).",
+    insight:"New presidents always moderate toward the center — doing less than they promised during the election. Democrats resolve election-year fears; Republicans resolve election-year hopes. The pattern is about surprise vs expectation, not which party is inherently better for markets.",
+    data:"New Democrat inauguration year: avg +21.8% · New Republican inauguration year: avg -6.6%" },
+
+  { id:42, part:4, title:"Stock Returns Are Too High and Must Fall",
+    myth:"Long-term stock charts look parabolic and unsustainable — a crash must be coming.",
+    truth:"Linear-scale stock charts make compounding look parabolic. Log-scale charts of the exact same data show consistent long-term growth. S&P 500 annualized 7.8% from 1990-2009 — actually BELOW the 10.2% from 1926-1989. The chart looks scariest at exactly the wrong time.",
+    insight:"Our ancestral fear of heights — calibrated for physical survival — misleads us when applied to compounding returns. A move from $100 to $200 is the same percentage gain as $1,000 to $2,000 — and should look the same on a log chart. Always use log scale for long-term data.",
+    data:"S&P 500 annualized: 1926-1989: 10.2% · 1990-2009: 7.8% (lower, despite the chart looking more dramatic)" },
+
+  // PART 5
+  { id:43, part:5, title:"Foreign Stocks Just Feel So...Foreign",
+    myth:"Foreign stocks are inherently riskier than US stocks and should be avoided or minimized.",
+    truth:"The US is ~49% of developed world equity markets. Since 1970, US stocks annualized 10.0% vs MSCI EAFE at 9.4% — essentially identical. US and foreign stocks are highly correlated (they trend together). Combined portfolios are less volatile than either alone.",
+    insight:"Non-US stocks being 'riskier' is a perception, not a measurable fact. Transaction costs for foreign stocks are now minimal. American Depositary Receipts (ADRs) let you buy foreign stocks in USD on US exchanges. There is no structural reason why foreign should be more risky.",
+    data:"US stocks (1970-2009): 10.0% annualized · MSCI EAFE: 9.4% — nearly identical long-term returns" },
+
+  { id:44, part:5, title:"Who Needs Foreign?",
+    myth:"US stocks are sufficient — no need to invest internationally if you get good US returns.",
+    truth:"US and non-US stocks trade leadership irregularly for multi-year periods. In the 1980s, foreign led by 241%. In the mid-to-late 1990s, US led by 193%. Owning both stabilizes returns over time. Neither consistently beats the other long-term.",
+    insight:"Holding only US stocks means you miss every foreign leadership cycle — sometimes lasting a decade or more. Global diversification gives you more risk management opportunities (reducing single-country risk) and more chances to tilt toward the current leader.",
+    data:"1980s: foreign stocks outperformed by 241% · 1990s: US outperformed by 193%. Leadership always rotates." },
+
+  { id:45, part:5, title:"Big Debt Is National Death",
+    myth:"High national debt levels are catastrophically dangerous and will destroy the economy.",
+    truth:"US net public debt of 53% of GDP in 2009 was lower than 1991-1998 and far below the post-WWII peak of 109% of GDP. The UK maintained 100%+ debt/GDP for over 100 years (1750-1850) during its golden era and Industrial Revolution — and thrived.",
+    insight:"No major developed nation has demonstrated a clear 'too high' debt level that invariably causes economic catastrophe. Debt enables investment, spending, and velocity. Paying it back (surpluses) contracts the money supply. Think globally and historically before fearing debt.",
+    data:"UK debt 1750-1850: above 100% of GDP, peaking 250%+ for decades. UK was the world's leading economy." },
+
+  { id:46, part:5, title:"America Can't Handle Its Debt",
+    myth:"US debt service costs are unsustainable and will strangle economic growth.",
+    truth:"Net debt interest payments in 2010 were ~2.2% of GDP — below any level from 1979-2002. To reach the interest cost burden of the economically vibrant 1984-1996 period, interest rates would need to rise a full 2 percentage points. Low rates keep debt cheap.",
+    insight:"Big, scary absolute debt numbers ($300B+ in interest) look very different scaled to a $14+ trillion economy. The correct metric is interest payments as % of GDP — and that figure was at historically benign levels. Scale big numbers to see them correctly.",
+    data:"Net debt interest payments 2010: ~2.2% of GDP — below every year from 1979-2002. Not a crisis." },
+
+  { id:47, part:5, title:"Indebted to China",
+    myth:"China holds so much US debt that it could threaten the US economy by dumping Treasuries.",
+    truth:"The US government itself holds 37% of US debt (Medicare/Social Security trust funds). American investors hold another 27.7%. China holds only 7.3% — barely more than Japan's 6.2%. If China sold, higher yields would attract other buyers, offsetting the effect.",
+    insight:"China buys US Treasuries for its own self-interest (maintaining dollar peg, earning safe returns) — not from charity. Foreign holders hold US debt because it's the world's deepest, safest sovereign debt market. Any large seller would simply make US debt more attractive to others.",
+    data:"US debt ownership: US government 37% · American investors 27.7% · China only 7.3% · Japan 6.2%" },
+
+  { id:48, part:5, title:"Trade Deficits Make Deficient Markets",
+    myth:"The US trade deficit is economically damaging and a sign of weakness that hurts stocks.",
+    truth:"Since 1980, the US has maintained large trade deficits while averaging 10.3% annual stock returns and 2.8% annual GDP growth. Japan and Germany have run persistent surpluses but achieved worse long-term stock and economic performance. Trade deficits reflect economic strength.",
+    insight:"A trade deficit means you can afford to buy more than you sell — evidence of high income, not overspending. The US is like a person who buys groceries but doesn't sell anything to the grocery store. They earn their income elsewhere. David Ricardo's principle of specialization of labor benefits all parties.",
+    data:"US with trade deficit: stocks 10.3% annual · Japan with surplus: stocks 7.0% annual (1980-2009)" },
+
+  { id:49, part:5, title:"GDP Makes Stocks Grow",
+    myth:"Strong GDP growth drives stock market returns; weak GDP means weak stocks.",
+    truth:"Stocks are a leading indicator — they move 6-12 months BEFORE the economy. In 1982, GDP shrank 1.94% while stocks rose 21.6%. In 2009, GDP shrank 2.44% while stocks soared 26.5%. In 2000, GDP grew 4.14% while stocks fell into a bear market.",
+    insight:"GDP measures what already happened and is released months later. Stocks look forward at what's likely to happen in the next 12-18 months. By the time GDP confirms the recovery, stocks have already moved — often dramatically. Never use GDP as a market timing indicator.",
+    data:"2009: GDP shrank 2.44% AND stocks rose 26.5%. 1982: GDP shrank AND stocks rose 21.6%. Completely disconnected." },
+
+  { id:50, part:5, title:"Terrorism Terrorizes Stocks",
+    myth:"Major terrorist attacks devastate stock markets and cause lasting economic damage.",
+    truth:"After 9/11, stocks fell 11.6% then recovered to pre-attack levels within 20 trading days. After the 2004 Madrid bombings, Spain stocks rose 29% for the year. After the 2005 London bombings, the FTSE barely flinched. The 1918 Spanish flu killed hundreds of millions — stocks rose 26% that year.",
+    insight:"Terrorism is devastating to human life but historically minimal in lasting market impact. Capitalism and its inherent resilience are more powerful than any external attack. Fear of terrorism creates a 'fear of a false factor' setup — if it doesn't materialize as feared, it's actually bullish.",
+    data:"9/11 aftermath: S&P 500 fully recovered to pre-attack levels within 20 trading days" }
+];
+
+// ── VIEWS COUNTER ─────────────────────────────────────────────────────
+(async () => {
+  try {
+    const res = await fetch('https://api.countapi.xyz/hit/debunkery-ken-fisher-v2/page-views');
+    const data = await res.json();
+    document.getElementById('view-count').textContent = data.value.toLocaleString();
+  } catch {
+    // Fallback: use localStorage
+    let v = parseInt(localStorage.getItem('dby_views') || '0') + 1;
+    localStorage.setItem('dby_views', v);
+    document.getElementById('view-count').textContent = v.toLocaleString();
+  }
+})();
+
+// ── RENDER BUNK CARDS ─────────────────────────────────────────────────
+function createBunkCard(bunk) {
+  const color = PART_COLORS[bunk.part];
+  const card = document.createElement('div');
+  card.className = 'bunk-card';
+  card.dataset.part = bunk.part;
+  card.dataset.id = bunk.id;
+  card.dataset.search = `${bunk.title} ${bunk.myth} ${bunk.truth} ${bunk.insight}`.toLowerCase();
+
+  card.innerHTML = `
+    <div class="bunk-header" onclick="toggleCard(this)">
+      <div class="bunk-num" style="background:${color}22;color:${color};border:1px solid ${color}44">Bunk ${bunk.id}</div>
+      <div class="bunk-header-text">
+        <div class="bunk-title">${bunk.title}</div>
+        <div class="bunk-myth-preview">🚫 "${bunk.myth.substring(0,80)}${bunk.myth.length>80?'…':''}"</div>
+      </div>
+      <div class="bunk-toggle" style="color:${color}">▾</div>
+    </div>
+    <div class="bunk-body">
+      <div class="bunk-body-inner">
+        <div class="myth-block">
+          <div class="block-label">🚫 The Myth</div>
+          <div class="block-text">${bunk.myth}</div>
+        </div>
+        <div class="truth-block">
+          <div class="block-label">✅ The Truth</div>
+          <div class="block-text">${bunk.truth}</div>
+        </div>
+        <div class="insight-block">
+          <div class="block-label">💡 Key Investor Insight</div>
+          <div class="block-text">${bunk.insight}</div>
+        </div>
+        ${bunk.data ? `<div class="data-pill">📊 <span>${bunk.data}</span></div>` : ''}
+      </div>
+    </div>`;
+  return card;
+}
+
+function toggleCard(headerEl) {
+  const card = headerEl.closest('.bunk-card');
+  card.classList.toggle('open');
+}
+
+// Populate part lists
+for (let p = 1; p <= 5; p++) {
+  const list = document.getElementById(`list-part${p}`);
+  BUNKS.filter(b => b.part === p).forEach(b => list.appendChild(createBunkCard(b)));
+}
+
+// Populate all-bunks list
+const listAll = document.getElementById('list-all');
+BUNKS.forEach(b => listAll.appendChild(createBunkCard(b)));
+
+// ── TABS ──────────────────────────────────────────────────────────────
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+function switchTab(tabId) {
+  tabBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === tabId));
+  tabPanels.forEach(p => p.classList.toggle('active', p.id === `panel-${tabId}`));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+tabBtns.forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+
+// ── SEARCH (all-bunks tab) ────────────────────────────────────────────
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase().trim();
+    const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+    document.querySelectorAll('#list-all .bunk-card').forEach(card => {
+      const matchSearch = !q || card.dataset.search.includes(q);
+      const matchFilter = activeFilter === 'all' || card.dataset.part === activeFilter;
+      card.classList.toggle('hidden', !(matchSearch && matchFilter));
+    });
+  });
+}
+
+// ── FILTER BUTTONS ───────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.background = '';
+      b.style.color = b.style.color || '';
+    });
+    btn.classList.add('active');
+    const p = PART_COLORS[btn.dataset.filter];
+    if (p) { btn.style.background = p; btn.style.color = '#fff'; btn.style.borderColor = p; }
+    else { btn.style.background = 'rgba(232,160,0,0.15)'; btn.style.color = 'var(--gold)'; }
+
+    const filter = btn.dataset.filter;
+    const q = searchInput?.value.toLowerCase().trim() || '';
+    document.querySelectorAll('#list-all .bunk-card').forEach(card => {
+      const matchSearch = !q || card.dataset.search.includes(q);
+      const matchFilter = filter === 'all' || card.dataset.part === filter;
+      card.classList.toggle('hidden', !(matchSearch && matchFilter));
+    });
+  });
+});
+
+// ── CHECKLIST ────────────────────────────────────────────────────────
+const checkItems = document.querySelectorAll('#investor-checklist li');
+const countEl = document.getElementById('checklist-count');
+const fillEl = document.getElementById('progress-fill');
+
+// Load saved state
+const saved = JSON.parse(localStorage.getItem('dby_checklist') || '{}');
+checkItems.forEach(li => {
+  if (saved[li.dataset.check]) li.classList.add('checked');
+});
+updateChecklist();
+
+checkItems.forEach(li => {
+  li.addEventListener('click', () => {
+    li.classList.toggle('checked');
+    const state = {};
+    checkItems.forEach(l => { if (l.classList.contains('checked')) state[l.dataset.check] = true; });
+    localStorage.setItem('dby_checklist', JSON.stringify(state));
+    updateChecklist();
+  });
+});
+
+function updateChecklist() {
+  const total = checkItems.length;
+  const done = document.querySelectorAll('#investor-checklist li.checked').length;
+  countEl.textContent = `${done} of ${total} completed`;
+  fillEl.style.width = `${(done/total)*100}%`;
+}
+</script>
+</body>
+</html>
